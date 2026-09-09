@@ -1,4 +1,17 @@
+using Microsoft.EntityFrameworkCore;
+using PortfolioSite.Data;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<PortfolioDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("PortfolioDb")));
+/*
+ Why this line matters: builder.Services.AddDbContext<...> registers your DbContext with ASP.NET Core's dependency injection container.
+Think of that container like a hotel concierge — 
+instead of every controller manually creating its own database connection (imagine every hotel guest having to personally go dig a key out of a locked cabinet), 
+a controller just asks for a PortfolioDbContext in its constructor, 
+and ASP.NET Core hands it a ready-to-use one automatically.
+ */
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
