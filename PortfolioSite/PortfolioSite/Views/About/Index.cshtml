@@ -1,0 +1,23 @@
+﻿@model PortfolioSite.Models.Bio
+
+<!--
+    model PortfolioSite.Models.Bio at the top tells Razor (the view engine) "expect a Bio object here" — 
+    this is what makes Model.FullName work with autocomplete and compile-time checking, rather than being a loose, error-prone string
+-->
+
+<h1>@Model.FullName</h1>
+<p><em>@Model.Tagline</em></p>
+<p>@Model.AboutText</p>
+
+<h2>Experience</h2>
+<ul>
+    @foreach (var exp in ViewBag.Experiences)
+    {
+        <li><strong>@exp.Institution</strong> — @exp.Title (@exp.StartDate.Year - @(exp.EndDate?.Year.ToString() ?? "Present"))</li>
+    }
+    <!--
+        exp.EndDate?.Year.ToString() ?? "Present" — that ?. is the "null-safe" operator (skip trying to read .Year if EndDate is null) 
+        and ?? provides a fallback value. This is exactly why we made EndDate nullable back in Step 2 — 
+        it lets your current studies/job correctly display as "Present" instead of crashing or showing a blank
+    -->
+</ul>

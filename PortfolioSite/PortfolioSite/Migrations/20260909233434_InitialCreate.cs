@@ -6,17 +6,6 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PortfolioSite.Migrations
 {
     /// <inheritdoc />
-    /// 
-    /*
-     Add-Migration InitialCreate — EF inspects your models (Skill, Project, Experience, Bio) and generates a C# file describing exactly what SQL is needed to create matching tables.
-    It doesn't touch the database yet — it just writes the plan.
-    Update-Database — actually runs that plan against your local SQL Server, creating PortfolioSiteDb with real Skills, Projects, Experiences, and Bios tables.
-
-    *This is genuinely the same mental model as Git: Add-Migration is like git commit (recording a change), 
-    Update-Database is like git push to a specific target (actually applying it).*
-    If you later add a field to a model, you run Add-Migration AddedSomeField and Update-Database again — 
-    EF figures out the difference and only applies the delta, rather than rebuilding everything from scratch.
-     */
     public partial class InitialCreate : Migration
     {
         /// <inheritdoc />

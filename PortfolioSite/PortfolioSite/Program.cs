@@ -38,5 +38,14 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
 
-
+using (var scope = app.Services.CreateScope())
+{
+    var db = scope.ServiceProvider.GetRequiredService<PortfolioDbContext>();
+    SeedData.Initialize(db);
+}
+/*
+ Your PortfolioDbContext is normally handed out fresh per web request. 
+ But at startup, there's no web request happening yet — so you manually ask the concierge for one "temporary key" (CreateScope()), 
+ use it once to seed the database, and it's automatically returned/disposed when the using block ends. This prevents connections from leaking.
+ */
 app.Run();
