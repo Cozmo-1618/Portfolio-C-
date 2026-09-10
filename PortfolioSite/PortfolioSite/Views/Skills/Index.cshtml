@@ -1,0 +1,15 @@
+﻿@model List<PortfolioSite.Models.Skill>
+
+<h1>Skills</h1>
+
+@foreach (var group in Model.GroupBy(s => s.Category))
+{
+    <h3>@group.Key</h3>
+    <ul>
+        @foreach (var skill in group)
+        {
+            <li>@skill.Name — @skill.ProficiencyLevel/5</li>
+        }
+    </ul>
+}
+

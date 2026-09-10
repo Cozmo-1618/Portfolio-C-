@@ -56,6 +56,25 @@ namespace PortfolioSite.Data
                 new Skill { Name = "Git & GitHub", Category = "Tool", ProficiencyLevel = 4 }
             );
 
+            context.Projects.AddRange(
+                new Project
+                {
+                    Title = "Portfolio Site",
+                    Description = "A personal portfolio website built with ASP.NET Core MVC.",
+                    RepoUrl = "https://github.com/yourusername/PortfolioSite",
+                    LiveUrl = "https://yourusername.github.io/PortfolioSite",
+                    TechStack = "ASP.NET Core MVC, C#, HTML, CSS, JavaScript"
+                },
+                new Project
+                {
+                    Title = "Todo List",
+                    Description = "A simple To-do list management application.",
+                    RepoUrl = "https://github.com/yourusername/TodoList",
+                    LiveUrl = "https://yourusername.github.io/TodoList",
+                    TechStack = "ASP.NET Core MVC, C#, HTML, CSS, JavaScript"
+                }
+            );
+
             context.SaveChanges();
         }
     }

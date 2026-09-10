@@ -1,0 +1,23 @@
+﻿@model List<PortfolioSite.Models.Project>
+
+<h1>Projects</h1>
+
+<p>Number of projects: @Model.Count</p>
+
+@foreach (var project in Model)
+{
+    <div class="project-card">
+        <h3>@project.Title</h3>
+        <p>@project.Description</p>
+        <p><strong>Tech:</strong> @project.TechStack</p>
+
+        @if (!string.IsNullOrEmpty(project.RepoUrl))
+        {
+            <a href="@project.RepoUrl" target="_blank">GitHub Repo</a>
+        }
+        @if (!string.IsNullOrEmpty(project.LiveUrl))
+        {
+            <a href="@project.LiveUrl" target="_blank">Live Demo</a>
+        }
+    </div>
+}

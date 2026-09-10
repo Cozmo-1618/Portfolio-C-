@@ -12,7 +12,7 @@ using PortfolioSite.Data;
 namespace PortfolioSite.Migrations
 {
     [DbContext(typeof(PortfolioDbContext))]
-    [Migration("20260909233434_InitialCreate")]
+    [Migration("20260910185417_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
